@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canva Views | View Canva Links Differently</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --black: #011627;
+        --green: #2ec4b6;
+        --orange: #ff9f1c;
+        --red: #e71d36;
+        --white: #fdfffc;
+        --gray: #545775;
+      }
+
+      body {
+        background: var(--black);
+        font-family: "Dosis", sans-serif;
+        font-size: 24px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        color: var(--green);
+        font-size: 4rem;
+        font-weight: 700;
+      }
+
+      h3,
+      p {
+        color: var(--white);
+      }
+
+      footer * {
+        color: var(--gray);
+        font-size: 0.8rem;
+      }
+
+      .overlay {
+        align-items: center;
+        background-color: #011627;
+        background-image: linear-gradient(135deg, #061421 25%, transparent 25%),
+          linear-gradient(225deg, #061421 25%, transparent 25%),
+          linear-gradient(45deg, #061421 25%, transparent 25%),
+          linear-gradient(315deg, #061421 25%, #011627 25%);
+        background-position: 10px 0, 10px 0, 0 0, 0 0;
+        background-size: 20px 20px;
+        background-repeat: repeat;
+        display: grid;
+        height: calc(100vh - 60px);
+        opacity: 1;
+      }
+
+      .input {
+        font-size: 1.5rem;
+        margin: 20px;
+        padding: 10px;
+        width: 80%;
+      }
+
+      .buttons .button {
+        background-color: var(--red);
+        border: 1px solid var(--red);
+        font-weight: 500;
+        padding: 5px 10px;
+      }
+
+      .buttons button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .buttons {
+        margin: 20px auto;
+      }
+
+      .button {
+        border-radius: 4px;
+        color: var(--white);
+        cursor: pointer;
+        font-family: "Dosis", sans-serif;
+        font-size: 1rem;
+        margin: 3px 1px;
+      }
+
+      .tiny-button {
+        background-color: var(--green);
+        border: 1px solid var(--green);
+        font-weight: 400;
+        padding: 2px 5px;
+      }
+
+      .error {
+        color: var(--red);
+        font-size: 1rem;
+      }
+
+      .clear-input {
+        position: absolute;
+        top: 35px;
+        right: calc(5% + 15px);
+        color: red;
+        width: 1.5rem;
+        cursor: pointer;
+      }
+
+      .relative {
+        position: relative;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      @media screen and (max-width: 1080px) {
+          body {
+              padding: 10px;
+          }
+        .desktop-only {
+          display: none;
+        }
+        .input {
+            margin: 0;
+            width: calc(100% - 40px);
+        }
+      }
+    </style>
+  </head>
+  <body class="overlay">
+    <div>
+      <h1 class="title">Canva Views <span class="desktop-only">🖼</span></h1>
+      <p>
+        <span>Got a Canva link but wish to view it differently?</span>
+        <br />
+        <span>Enter the link below and select your preferred view.</span>
+      </p>
+      <div class="relative">
+        <input
+          type="text"
+          name="link"
+          id="link"
+          class="input"
+          placeholder="https://www.canva.com/design/..."
+        />
+        <img src="./clear.svg" alt="Clear input" class="clear-input hide desktop-only" />
+      </div>
+      <p class="error"></p>
+      <div class="buttons">
+        <button type="button" class="button" disabled data-path="watch">
+          Video <img src="./ext.svg" alt="External Link" />
+        </button>
+        <button type="button" class="button" disabled data-path="view">
+          Slides <img src="./ext.svg" alt="External Link" />
+        </button>
+        <button
+          type="button"
+          class="button"
+          disabled
+          data-path="view?website#2"
+        >
+          Parallax website <img src="./ext.svg" alt="External Link" />
+        </button>
+        <button
+          type="button"
+          class="button"
+          disabled
+          data-path="view?website#1"
+        >
+          Multi page website <img src="./ext.svg" alt="External Link" />
+        </button>
+        <button
+          type="button"
+          class="button"
+          disabled
+          data-path="view?website#4"
+        >
+          Single page website <img src="./ext.svg" alt="External Link" />
+        </button>
+      </div>
+      <p>
+        <small
+          >Don't have a Canva link but want to try?
+          <button type="button" id="prefill-btn" class="tiny-button button">
+            Click here
+          </button></small
+        >
+      </p>
+    </div>
+    <footer>
+      <p>
+        <strong>Disclaimer: </strong>Canva Views is not affiliated with,
+        endorsed, sponsored or specifically approved by Canva or Canva.com in
+        any way.
+      </p>
+      <p>
+        Want to design something online easily? Use
+        <a href="https://www.canva.com" target="_blank">Canva</a>.
+      </p>
+      <p>
+        Canva Views is built by
+        <a href="https://www.github.com/abuuzayr" target="_blank">@abuuzayr</a>
+        /
+        <a href="https://www.builtforfifty.com" target="_blank"
+          >builtforfifty.com</a
+        >
+      </p>
+    </footer>
+    <script>
+      "use strict";
+
+      const demoUrl =
+        "https://www.canva.com/design/DAD_SJ6dTLU/nQruCFuPekCyKce1Evv3dA/view";
+
+      const clearInputBtn = document.getElementsByClassName("clear-input")[0];
+
+      const urlInput = document.getElementById("link");
+      urlInput.addEventListener("input", (e) => {
+        if (e.target.value.length) {
+          clearInputBtn.classList.remove("hide");
+            const validUrl = checkUrl(e.target.value);
+            if (validUrl) {
+                errorElement.innerHTML = "";
+                enableButtons(true);
+            } else {
+                errorElement.innerHTML = "Invalid URL";
+                enableButtons(false);
+            }
+        } else {
+          clearInputBtn.classList.add("hide");
+
+                enableButtons(false);
+        }
+      });
+
+      clearInputBtn.addEventListener("click", () => {
+        urlInput.value = "";
+        urlInput.dispatchEvent(new Event("input"));
+      });
+
+      const errorElement = document.getElementsByClassName("error")[0];
+
+      const checkUrl = (url) => {
+        const startRegex = new RegExp(
+          "^(https|http):\/\/(www.)?canva.com\/design\/",
+          "g"
+        );
+        return startRegex.test(url);
+      };
+
+      /*
+       * Attempt to verify URL on Canva.com but this will not
+       * work due to CORS. Even though the browser will receive
+       * 200 status code, our XHR response will remain empty.
+       */
+      const verifyUrl = (url) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open("HEAD", url, true);
+        xhr.addEventListener("readystatechange", () => {
+          if (xhr.readyState >= XMLHttpRequest.HEADERS_RECEIVED) {
+            if (xhr.status === 0 || xhr.status === 200) {
+              errorElement.innerHTML = "";
+            } else {
+              errorElement.innerHTML = "URL cannot be verified on Canva.com";
+            }
+          }
+        });
+        xhr.send();
+      };
+
+      const enableButtons = (enable) => {
+        const buttons = document.querySelectorAll(".buttons button");
+        buttons.forEach((button) => {
+          button.disabled = !enable;
+        });
+      };
+
+      const prefillButton = document.getElementById("prefill-btn");
+      prefillButton.addEventListener("click", () => {
+        urlInput.value = demoUrl;
+        urlInput.dispatchEvent(new Event("input"));
+      });
+
+      const buttons = document.getElementsByClassName("buttons")[0];
+      buttons.addEventListener("click", (event) => {
+        const buttonClicked = event.target.nodeName === "BUTTON";
+        if (buttonClicked) {
+          const url = urlInput.value;
+          const urlArr = url.split("design/")[1].split("/");
+          const user = urlArr[0];
+          const project = urlArr[1];
+          const path = event.target.getAttribute("data-path");
+          const href = `https://www.canva.com/design/${user}/${project}/${path}`;
+          const a = document.createElement("a");
+          a.target = "_blank";
+          a.href = href;
+          a.click();
+        }
+      });
+    </script>
+  </body>
+</html>
