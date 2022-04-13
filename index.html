@@ -122,18 +122,31 @@
       }
 
       @media screen and (max-width: 1080px) {
-          body {
-              padding: 10px;
-          }
+        body {
+          padding: 10px;
+        }
         .desktop-only {
           display: none;
         }
         .input {
-            margin: 0;
-            width: calc(100% - 40px);
+          margin: 0;
+          width: calc(100% - 40px);
         }
       }
     </style>
+    <!-- Panelbear -->
+    <script
+      async
+      src="https://cdn.panelbear.com/analytics.js?site=47flOKmoO0g"
+    ></script>
+    <script>
+      window.panelbear =
+        window.panelbear ||
+        function () {
+          (window.panelbear.q = window.panelbear.q || []).push(arguments);
+        };
+      panelbear("config", { site: "47flOKmoO0g" });
+    </script>
   </head>
   <body class="overlay">
     <div>
@@ -151,7 +164,11 @@
           class="input"
           placeholder="https://www.canva.com/design/..."
         />
-        <img src="./clear.svg" alt="Clear input" class="clear-input hide desktop-only" />
+        <img
+          src="./clear.svg"
+          alt="Clear input"
+          class="clear-input hide desktop-only"
+        />
       </div>
       <p class="error"></p>
       <div class="buttons">
@@ -226,18 +243,18 @@
       urlInput.addEventListener("input", (e) => {
         if (e.target.value.length) {
           clearInputBtn.classList.remove("hide");
-            const validUrl = checkUrl(e.target.value);
-            if (validUrl) {
-                errorElement.innerHTML = "";
-                enableButtons(true);
-            } else {
-                errorElement.innerHTML = "Invalid URL";
-                enableButtons(false);
-            }
+          const validUrl = checkUrl(e.target.value);
+          if (validUrl) {
+            errorElement.innerHTML = "";
+            enableButtons(true);
+          } else {
+            errorElement.innerHTML = "Invalid URL";
+            enableButtons(false);
+          }
         } else {
           clearInputBtn.classList.add("hide");
 
-                enableButtons(false);
+          enableButtons(false);
         }
       });
 
